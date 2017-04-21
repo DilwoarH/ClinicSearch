@@ -37,11 +37,6 @@ Node-Cache
 
 ```
 
-## Experiments
-```
-Caching has been implemented on 
-```
-
 ## Instructions
 
 ### Pre-requisites
