@@ -1,4 +1,6 @@
 var _ = require('lodash');
+const NodeCache = require( "node-cache" );
+const myCache = new NodeCache( { stdTTL: 120, checkperiod: 120 } ); //max 120 seconds of caching to avoid long term errors in an event of corrupted / incorrect cache
 require('../services/ClinicsService');
 
 module.exports = ClinicsController = (function() {
@@ -26,27 +28,37 @@ module.exports = ClinicsController = (function() {
 
       return new Promise(function(resolve, reject){
 
+          var cacheKey = 'location-' + location;
+          var cacheValue = myCache.get( cacheKey );
+
+          if ( cacheValue )
+          {
+              resolve( cacheValue );
+          }
+
+
           var _clinicsService     = new ClinicsService();
 
           return _clinicsService.getClinics( location )
           .then( ( res ) => {
             
-            if ( !_.isObject( res.body ) || res.status === "error" )
-            {
-                throw new Error(res.message);
-            }
+              if ( !_.isObject( res.body ) || res.status === "error" )
+              {
+                  throw new Error(res.message);
+              }
 
-            var transformedResponse = _this.transformResponse( res.body );
-            resolve(transformedResponse);
+              var transformedResponse = _this.transformResponse( res.body );
+              myCache.set(cacheKey, transformedResponse); //set cache
+              resolve(transformedResponse);
           })
           .catch( (err) => {
 
-            var _errMessage = { 
-              status: "error", 
-              message: err.message 
-            };
+              var _errMessage = { 
+                status: "error", 
+                message: err.message 
+              };
 
-            resolve( _errMessage );
+              resolve( _errMessage );
           });
 
       });
