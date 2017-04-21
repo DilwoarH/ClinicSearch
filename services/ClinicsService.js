@@ -5,7 +5,11 @@ module.exports = ClinicsService = (function() {
   function ClinicsService() {}
 
   ClinicsService.prototype.getClinics = ( location ) => {
-      return request( config.clinicService.url + location );
+      return request({
+        url: config.clinicService.url + location,
+        json: true,
+        resolveWithFullResponse: true 
+      });
   };
 
   return ClinicsService;
