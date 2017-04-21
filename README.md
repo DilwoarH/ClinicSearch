@@ -3,9 +3,37 @@
 Microservice using Clinics Data from data.gov.uk.
 ```
 ## References
+
+### Data API
 ```
 https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} is city name, ie. London.
 ```
+
+### Libraries Used
+```
+Express
+- Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+Lodash
+- Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+Lodash’s modular methods are great for:
+    - Iterating arrays, objects, & strings
+    - Manipulating & testing values
+    - Creating composite functions
+
+Request / Request Promise Native
+- Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
+
+Node-Cache
+- A simple caching module that has set, get and delete methods and works a little bit like memcached.
+
+```
+
+## Experiments
+```
+Caching has been implemented on 
+```
+
 ## Instructions
 
 ### Pre-requisites
