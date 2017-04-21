@@ -4,12 +4,9 @@ var app = express()
 require('./controllers/ClinicsController')
 
 app.get('/clinics/city/:name', function (req, res) {
-
-    console.log(req.params.name);
-
-    x = new ClinicsController();
-
-    res.send(x.get());
+    var _clinicsController =  new ClinicsController();
+    var response           =  _clinicsController.get( req.params.name );
+    res.send( response );
 })
 
 app.listen(3000, function () {
