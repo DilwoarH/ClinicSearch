@@ -15,13 +15,18 @@ https://data.gov.uk/data/api/service/health/clinics?city=
 
 ### Initial Set up
 
+``` 
 1. git clone https://github.com/DilwoarH/ClinicSearch
-2. node install
+2. node install 
+```
 
 
 ### Running Test
+```
 1. node test
-
+```
 ### Running Application
+```
 1. node index.js
 2. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
+```
