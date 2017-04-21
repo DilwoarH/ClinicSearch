@@ -1,24 +1,14 @@
-var http = require('http')
+var http = require('request-promise-native')
 var config = require('../config')
 
 module.exports = ClinicsService = (function() {
   function ClinicsService() {}
 
-  ClinicsService.prototype.getClinics = ( Location ) => {
+  ClinicsService.prototype.getClinics = ( location ) => {
 
-      return new Promise(function(resolve, reject) {
-
-          var result = {result: "success"};
-
-          resolve(result);
-        
-      });
+      return http( config.clinicService.url + location );
   };
 
-  ClinicsService.prototype.makeRequest = function( url, options, callback )
-  {
-
-  };
 
   return ClinicsService;
 
