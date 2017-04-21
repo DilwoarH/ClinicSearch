@@ -1,4 +1,5 @@
-require('../services/ClinicsService')
+var _ = require('lodash');
+require('../services/ClinicsService');
 
 module.exports = ClinicsController = (function() {
   function ClinicsController() {}
@@ -33,14 +34,30 @@ module.exports = ClinicsController = (function() {
 
   ClinicsController.prototype.transformResponse = ( res ) => {
 
+    res = JSON.parse(res);
+
     var transformedResponse = {
+      status: "success",
       results: {},
-      total: 0
+      total: _.size( res.result )
     };
-
     
+    for( i in res.result )
+    {
+      var clinic = res.result[i];
 
-    return res;
+      if ( _.isUndefined( transformedResponse.results[clinic.partial_postcode] ) )
+      {
+          transformedResponse.results[clinic.partial_postcode] = 1;
+      }
+      else
+      {
+          transformedResponse.results[clinic.partial_postcode]++;
+      }
+
+    }
+
+    return transformedResponse;
   };
 
   return ClinicsController;
