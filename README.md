@@ -12,6 +12,7 @@ https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} i
 ```
 1. NodeJS / NPM - https://nodejs.org/en/download/
 2. A modern browser - https://www.google.co.uk/chrome/browser/desktop/
+3. GIT (optional)
 ```
 
 ### Initial Set up
