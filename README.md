@@ -2,6 +2,14 @@
 ```
 Microservice using Clinics Data from data.gov.uk.
 ```
+
+## Experimental Branches
+### Caching
+```
+Branch Name: "caching" - https://github.com/DilwoarH/ClinicSearch/tree/caching
+  - Adds caching to the microservice to allow quicker responses and more efficient responses.
+```
+
 ## References
 
 ### Data API
@@ -60,3 +68,37 @@ Tests Currently not implemented.
 1. node index.js
 2. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
 ```
+
+## Example Responses
+
+### /clinics/city/{City}
+```
+{
+    status: "success",
+    results: {
+        SO40: 18,
+        SO30: 7,
+        SO14: 14,
+        SO18: 10,
+        SO19: 13,
+        SO45: 8,
+        SO16: 18,
+        SO15: 10,
+        SO31: 10,
+        SO17: 5,
+        SO32: 2,
+        SO52: 1
+    },
+    total: 12
+}
+```
+
+### /healthcheck
+```
+{
+    service: "https://data.gov.uk/data/api/service/health/clinics?city=",
+    isHealthy: true,
+    time: 130
+}
+```
+
