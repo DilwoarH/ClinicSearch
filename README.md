@@ -7,7 +7,8 @@ Microservice using Clinics Data from data.gov.uk.
 ### Caching
 ```
 Branch Name: "caching" - https://github.com/DilwoarH/ClinicSearch/tree/caching
-  - Adds caching to the microservice to allow quicker responses and more efficient responses.
+  - Adds caching to the microservice to allow quicker responses and more efficient responses by not relying on 3rd party systems for response times.
+  - It also means that if there are restrictions in the Data API from data.gov.uk where a specific number of requests can be made per seconds, it does not hit this limit.
 ```
 
 ## References
