@@ -15,17 +15,15 @@ module.exports = HealthCheckController = (function() {
       Logic:
         -> create Promise
         -> call ClinicService
-        -> transform results and resolve promise
-        -> if error occurs
-          -> return error message
+        -> transform health response and respond
+        -> catch healthcheck failures and respond
+
   *********************************/
   HealthCheckController.prototype.performHealthCheck = function() {
 
-      var _this = this;
-
       return new Promise(function(resolve, reject){
 
-          var _clinicsService     = new ClinicsService();
+          var _clinicsService = new ClinicsService();
 
           return _clinicsService.getClinics()
           .then( ( res ) => {
@@ -45,7 +43,7 @@ module.exports = HealthCheckController = (function() {
               service: config.clinicService.url,
               isHealthy: false, 
               message: err.message,
-              time: err.time
+              time: err.elapsedTime || null //timing may not be available on error
             };
 
             resolve( _errMessage );
