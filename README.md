@@ -25,7 +25,7 @@ https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} i
 
 ### Running Test
 ```
-1. node test
+Tests Currently not implemented.
 ```
 ### Running Application
 ```
