@@ -1,17 +1,18 @@
 # Clinics Search
-
+```
 Microservice using Clinics Data from data.gov.uk.
-
+```
 ## References
+```
 https://data.gov.uk/data/api/service/health/clinics?city=
-
-
+```
 ## Instructions
 
 ### Pre-requisites
-
+```
 1. NodeJS / NPM - https://nodejs.org/en/download/
 2. A modern browser - https://www.google.co.uk/chrome/browser/desktop/
+```
 
 ### Initial Set up
 
