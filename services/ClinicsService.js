@@ -5,11 +5,9 @@ module.exports = ClinicsService = (function() {
   function ClinicsService() {}
 
   ClinicsService.prototype.getClinics = ( location ) => {
-
       return http( config.clinicService.url + location );
   };
-
-
+  
   return ClinicsService;
 
 })();
