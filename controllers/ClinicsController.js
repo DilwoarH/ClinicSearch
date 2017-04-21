@@ -24,11 +24,9 @@ module.exports = ClinicsController = (function() {
               message: err.message 
             };
 
-
             resolve( _errMessage );
           });
 
-        
       });
   };
 
@@ -37,11 +35,11 @@ module.exports = ClinicsController = (function() {
     res = JSON.parse(res);
 
     var transformedResponse = {
-      status: "success",
-      results: {},
-      total: _.size( res.result )
+      status: "success", // result status
+      results: {}, //an object with all the partial_postcodes found on the results and how many of them where found
+      total: 0 //the total number of different partial_postcodes found
     };
-    
+
     for( i in res.result )
     {
       var clinic = res.result[i];
@@ -56,6 +54,8 @@ module.exports = ClinicsController = (function() {
       }
 
     }
+
+    transformedResponse.total = _.size( transformedResponse.results );
 
     return transformedResponse;
   };
