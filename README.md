@@ -4,7 +4,7 @@ Microservice using Clinics Data from data.gov.uk.
 ```
 ## References
 ```
-https://data.gov.uk/data/api/service/health/clinics?city=
+https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} is city name, ie. London.
 ```
 ## Instructions
 
