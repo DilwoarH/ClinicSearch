@@ -4,21 +4,19 @@ require('../services/ClinicsService')
 module.exports = ClinicsController = (function() {
   function ClinicsController() {}
 
-  ClinicsController.prototype.get = function( Location ) {
+  ClinicsController.prototype.getClinicsByLocationName = ( Location ) => {
 
       return new Promise((resolve, reject) => {
 
           var _clinicsService     = new ClinicsService();
 
           return _clinicsService.getClinics( Location )
-          .then( function( res ){
+          .then( ( res ) => {
             resolve( res );
           });
 
         
       });
-
-      
   };
 
   return ClinicsController;

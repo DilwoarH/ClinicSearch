@@ -6,7 +6,7 @@ require('./controllers/ClinicsController');
 app.get('/clinics/city/:name', (req, res) => {
     var _clinicsController =  new ClinicsController();
     
-    _clinicsController.get( req.params.name )
+    _clinicsController.getClinicsByLocationName( req.params.name )
     .then( ( response ) => {
       res.send( response );
     });
