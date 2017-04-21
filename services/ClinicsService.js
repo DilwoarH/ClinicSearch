@@ -4,11 +4,13 @@ var config = require('../config')
 module.exports = ClinicsService = (function() {
   function ClinicsService() {}
 
-  ClinicsService.prototype.getClinics = ( location ) => {
+  ClinicsService.prototype.getClinics = ( location = "" ) => {
       return request({
+        method: "GET",
         url: config.clinicService.url + location,
         json: true,
-        resolveWithFullResponse: true 
+        resolveWithFullResponse: true,
+        time: true
       });
   };
 
