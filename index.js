@@ -14,5 +14,5 @@ app.get('/clinics/city/:name', (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Application listening on port 3000! Go to http://localhost:3000.')
+  console.log('Application listening on port 3000! Go to http://localhost:3000/.')
 });
