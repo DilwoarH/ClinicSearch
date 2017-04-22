@@ -26,9 +26,42 @@ Tests Currently not implemented.
 ### Running Application
 ```
 1. node index.js
-2. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
+2. navigate to http://localhost:3000/healthcheck - check if service is running correctly.
+3. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
 ```
 
+## Example Responses
+
+### /healthcheck
+```
+{
+    service: "https://data.gov.uk/data/api/service/health/clinics?city=",
+    isHealthy: true,
+    time: 130
+}
+```
+
+### /clinics/city/{City}
+```
+{
+    status: "success",
+    results: {
+        SO40: 18,
+        SO30: 7,
+        SO14: 14,
+        SO18: 10,
+        SO19: 13,
+        SO45: 8,
+        SO16: 18,
+        SO15: 10,
+        SO31: 10,
+        SO17: 5,
+        SO32: 2,
+        SO52: 1
+    },
+    total: 12
+}
+```
 
 ## Experimental Branches
 ### Caching
@@ -68,38 +101,3 @@ Node-Cache
 - A simple caching module that has set, get and delete methods and works a little bit like memcached.
 
 ```
-
-
-## Example Responses
-
-### /clinics/city/{City}
-```
-{
-    status: "success",
-    results: {
-        SO40: 18,
-        SO30: 7,
-        SO14: 14,
-        SO18: 10,
-        SO19: 13,
-        SO45: 8,
-        SO16: 18,
-        SO15: 10,
-        SO31: 10,
-        SO17: 5,
-        SO32: 2,
-        SO52: 1
-    },
-    total: 12
-}
-```
-
-### /healthcheck
-```
-{
-    service: "https://data.gov.uk/data/api/service/health/clinics?city=",
-    isHealthy: true,
-    time: 130
-}
-```
-
