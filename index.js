@@ -34,5 +34,5 @@ app.get('/healthcheck', (req, res) => {
 
 // sets app to listen to port 3000
 app.listen(3000, () => {
-  console.log('Application listening on port 3000! Go to http://localhost:3000/healthcheck.')
+  console.log('Application listening on port 3000! Go to http://localhost:3000/healthcheck')
 });
