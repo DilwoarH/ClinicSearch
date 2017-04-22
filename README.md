@@ -33,7 +33,7 @@ Tests Currently not implemented.
 ## Example Responses
 
 ### /healthcheck
-```
+```javascript
 {
     service: "https://data.gov.uk/data/api/service/health/clinics?city=",
     isHealthy: true,
@@ -42,7 +42,7 @@ Tests Currently not implemented.
 ```
 
 ### /clinics/city/{City}
-```
+```javascript
 {
     status: "success",
     results: {
