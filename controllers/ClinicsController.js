@@ -25,11 +25,13 @@ module.exports = ClinicsController = (function() {
       // pointer for main scope
       var _this = this;
 
+      // wraps calls around promise to allow request handling to be synchronous 
       return new Promise(function(resolve, reject){
 
           // create new instance of ClinicsService class
           var _clinicsService     = new ClinicsService();
 
+          // calls get clinics function to which calls the data API
           return _clinicsService.getClinics( location )
           .then( ( res ) => {
             
@@ -106,7 +108,7 @@ module.exports = ClinicsController = (function() {
     // return transformed response
     return transformedResponse;
   };
-  
+
   return ClinicsController;
 
 })();
