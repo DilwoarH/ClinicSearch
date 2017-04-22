@@ -1,40 +1,8 @@
 # Clinics Search
 ```
-Microservice using Clinics Data from data.gov.uk.
-```
-
-## Experimental Branches
-### Caching
-```
-Branch Name: "caching" - https://github.com/DilwoarH/ClinicSearch/tree/caching
-  - Adds caching to the microservice to allow quicker responses and more efficient responses.
-```
-
-## References
-
-### Data API
-```
-https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} is city name, ie. London.
-```
-
-### Libraries Used
-```
-Express
-- Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-
-Lodash
-- Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
-Lodash’s modular methods are great for:
-    - Iterating arrays, objects, & strings
-    - Manipulating & testing values
-    - Creating composite functions
-
-Request / Request Promise Native
-- Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.
-
-Node-Cache
-- A simple caching module that has set, get and delete methods and works a little bit like memcached.
-
+Microservice using Clinics Data from data.gov.uk. To keep the code to a minimum, framework was not used 
+however a standard is followed with controllers and services (models). All configs should be stored in
+config.js and any new packages added should be added to package.json under the "dependencies" object. 
 ```
 
 ## Instructions
@@ -50,24 +18,29 @@ Node-Cache
 
 ``` 
 1. git clone https://github.com/DilwoarH/ClinicSearch
-2. node install 
+2. npm install 
 ```
 
-
-### Running Test
-```
-Tests Currently not implemented.
-```
 ### Running Application
 ```
 1. node index.js
-2. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
+2. navigate to http://localhost:3000/healthcheck - check if service is running correctly.
+3. navigate to http://localhost:3000/clinics/city/{city} - where {city} is city name, ie. London.
 ```
 
 ## Example Responses
 
-### /clinics/city/{City}
+### /healthcheck
+```javascript
+{
+    service: "https://data.gov.uk/data/api/service/health/clinics?city=",
+    isHealthy: true,
+    time: 130
+}
 ```
+
+### /clinics/city/{City}
+```javascript
 {
     status: "success",
     results: {
@@ -88,12 +61,41 @@ Tests Currently not implemented.
 }
 ```
 
-### /healthcheck
+## Experimental Branches
+### Caching - Was not in scope of project therefore not merged into master
 ```
-{
-    service: "https://data.gov.uk/data/api/service/health/clinics?city=",
-    isHealthy: true,
-    time: 130
-}
+Branch Name: "caching" - https://github.com/DilwoarH/ClinicSearch/tree/caching
+  - Adds caching to the microservice to allow quicker responses and more efficient responses by not relying on 
+  3rd party systems for response times.
+  - It also means that if there are restrictions in the Data API from data.gov.uk where a specific number of 
+  requests can be made per seconds, it does not hit this limit.
 ```
 
+## References
+
+### Data API
+```
+https://data.gov.uk/data/api/service/health/clinics?city={city} - where {city} is city name, ie. London.
+```
+
+### Libraries Used
+```
+Express
+- Express is a minimal and flexible Node.js web application framework that provides a robust set of features 
+for web and mobile applications.
+
+Lodash
+- Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.
+- Lodash’s modular methods are great for:
+    - Iterating arrays, objects, & strings
+    - Manipulating & testing values
+    - Creating composite functions
+
+Request / Request Promise Native
+- Request is designed to be the simplest way possible to make http calls. 
+It supports HTTPS and follows redirects by default.
+
+Node-Cache
+- A simple caching module that has set, get and delete methods and works a little bit like memcached.
+
+```
