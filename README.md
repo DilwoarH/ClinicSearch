@@ -62,7 +62,7 @@ config.js and any new packages added should be added to package.json under the "
 ```
 
 ## Experimental Branches
-### Caching
+### Caching - Was not in scope of project therefore not merged into master
 ```
 Branch Name: "caching" - https://github.com/DilwoarH/ClinicSearch/tree/caching
   - Adds caching to the microservice to allow quicker responses and more efficient responses by not relying on 
