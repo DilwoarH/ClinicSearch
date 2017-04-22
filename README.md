@@ -21,10 +21,6 @@ config.js and any new packages added should be added to package.json under the "
 2. npm install 
 ```
 
-### Running Test
-```
-Tests Currently not implemented.
-```
 ### Running Application
 ```
 1. node index.js
