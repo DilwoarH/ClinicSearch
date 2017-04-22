@@ -1,6 +1,8 @@
 # Clinics Search
 ```
-Microservice using Clinics Data from data.gov.uk.
+Microservice using Clinics Data from data.gov.uk. To keep the code to a minimum, framework was not used 
+however a standard is followed with controllers and services (models). All configs should be stored in
+config.js and any new packages added should be added to package.json under the "dependencies" object. 
 ```
 
 ## Instructions
